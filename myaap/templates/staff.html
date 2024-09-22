@@ -1,0 +1,33 @@
+{% extends  "base.html" %}
+{% block content%}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">STT</th>
+                <th scope="col">Ten</th>
+                <th scope="col">Tuoi</th>
+                <th scope="col">Gioi Tinh</th>
+                <th scope="col">Ngay sinh</th>
+                <th scope="col">Anh</th>
+                <th scope="col">Dia chi</th>
+            </tr>
+        </thead>
+        <tbody class ="table-group-divider">
+            {% for item in data %}
+            <tr>
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>{{item.gender}}</td>
+                <td>{{item.birthday}}</td>
+                <td><img src ={{item.image.url}} alt="anh"/></td>
+                <td>{{item.adress}}</td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
+
+
+
