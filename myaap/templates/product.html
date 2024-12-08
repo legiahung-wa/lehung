@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href={% static 'css/product.css' %}>
+
+<table class="table">
+    <thead>
+        <tr>
+        <th scope="col" class="name">Tên</th>
+        <th scope="col">Description</th>
+        <th scope="col">Ảnh</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+       
+        {% for item in data %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{item.name}}</td>
+                <td>{{item.description}}</td>
+                <td><img style="width: 50px; height:50px" src={{item.image.url}} alt="Ảnh"/></td>
+                <td>{{item.price}}</td>
+                <td>{{item.quantity}}</td>
+               <td><a href={% url "editproduct" item.id %}><i class="bi bi-pen-fill"></i></a></td>
+                <td><a><i class="bi bi-trash3-fill"></i></a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+   {% if data %}
+   <div class = " container-fluid d-flex flex-wrap align-items-center justify-content-between">
+        {% for item in data%}
+        <div class="col-4 mt-4 d-flex flex-column align-items-center justify-content-around">
+            {% if item.image %}
+                <img class="w-50" src ={{item.image.url}}>
+            {% endif  %} 
+            <h3 class="product-title">{{ item.name }}</h3>
+            <strong class="product-price">${{ item.price }}</strong>
+        </div>
+        {% endfor %}
+   </div>
+   {% endif %}
+{% endblock %}

@@ -1,30 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-    {% if product %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
             <label for="name" class="form-label">Tên</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{product.name}}">
+            <input type="text" class="form-control" id="name" name="name">
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Description</label>
-            <input type="text" class="form-control" id="price" name="description" value="{{product.description}}">
+            <input type="text" class="form-control" id="price" name="description" >
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Price</label>
-            <input type="text" class="form-control" id="description" name="price" value="{{product.price}}">
+            <input type="text" class="form-control" id="description" name="price" >
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Ảnh</label>
-            <img src="{{product.image.url}}" />
-            <input type="file" class="form-control" id="image" name="image" value="{{product.image}}">
+            <input type="file" class="form-control" id="image" name="image" >
         </div>
         <div class="mb-3">
             <label for="age" class="form-label">Quantity</label>
-            <input type="text" class="form-control" id="quantity" name="quantity" value="{{product.quantity}}">
+            <input type="text" class="form-control" id="quantity" name="quantity" >
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    {% endif %}
 {% endblock %}

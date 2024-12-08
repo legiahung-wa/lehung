@@ -41,3 +41,4 @@ class Product(models.Model):
         return self.description
     def getQuantity(self):
         return self.quantity    
+    

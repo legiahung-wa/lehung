@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<a href={% url "product_create" %}><button>Add</button></a>
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">STT</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Ảnh</th>
+        <th scope="col">Price</th>
+        <th scope="col">Descripion</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">    
+        {% for item in product %}
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{item.name}}</td>
+                <td><img style="width: 50px; height:50px" src={{item.image.url}} alt="Ảnh"/></td>
+                <td>{{item.price}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.quantity}}</td>
+                <td><a href={% url "product_update" item.id %}><i class="bi bi-pen-fill"></i></a></td>
+                <td><a href={% url "product_delete" item.id %}><i class="bi bi-trash3-fill"></i></a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}
